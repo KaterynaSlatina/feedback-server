@@ -1,79 +1,68 @@
- <h1>Feedback API Server</h1>
-    <p>
-        This project is a simple feedback form server built with <strong>Node.js</strong> and <strong>Express</strong>, 
-        which uses <strong>Nodemailer</strong> to send feedback messages via email. The server is designed to handle 
-        POST requests with feedback data (name, phone, and message) and send it to a specified email address.
-    </p>
+#Feedback API Server
 
-    <h2>Features</h2>
-    <ul>
-        <li>Accepts POST requests with feedback data</li>
-        <li>Sends feedback via email using <strong>Nodemailer</strong></li>
-        <li>Configurable through environment variables</li>
-        <li>Deployed on <strong>Vercel</strong></li>
-    </ul>
+This project is a simple feedback form server built with Node.js and Express, which uses Nodemailer to send feedback messages via email. The server is designed to handle POST requests with feedback data (name, phone, and message) and send it to a specified email address.
 
-    <h2>Technologies Used</h2>
-    <ul>
-        <li><a href="https://nodejs.org/">Node.js</a></li>
-        <li><a href="https://expressjs.com/">Express</a></li>
-        <li><a href="https://nodemailer.com/">Nodemailer</a></li>
-        <li><a href="https://vercel.com/">Vercel</a></li>
-    </ul>
+---Features
 
-    <h2>Environment Variables</h2>
-    <p>
-        To configure the email service, you'll need the following environment variables:
-    </p>
-    <ul>
-        <li><strong>EMAIL_USER</strong>: The email address from which messages will be sent.</li>
-        <li><strong>EMAIL_PASS</strong>: The password or application-specific password for the email account.</li>
-        <li><strong>RECEIVER_EMAIL</strong>: The email address that will receive the feedback messages.</li>
-        <li><strong>PORT</strong> (optional): The port for the server (defaults to <code>3000</code>).</li>
-    </ul>
-    <p>
-        You can set these variables in your <code>.env</code> file:
-    </p>
-    <pre><code>
+*Accepts POST requests with feedback data
+*Sends feedback via email using Nodemailer
+*Configurable through environment variables
+*Deployed on Vercel
 
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-email-password
-RECEIVER_EMAIL=recipient-email@gmail.com
-PORT=3000
-</code></pre>
+---Technologies Used
 
-    <h2>Installation</h2>
-    <ol>
-        <li>Clone the repository:</li>
-        <pre><code>git clone https://github.com/your-username/your-repo-name.git</code></pre>
+- Node.js
+- Express
+- Nodemailer
+- Vercel
 
-        <li>Navigate into the project directory:</li>
-        <pre><code>cd your-repo-name</code></pre>
+---Environment Variables
+To configure the email service, you'll need the following environment variables:
 
-        <li>Install the dependencies:</li>
-        <pre><code>npm install</code></pre>
+- EMAIL_USER: The email address from which messages will be sent.
+- EMAIL_PASS: The password or application-specific password for the email account.
+- RECEIVER_EMAIL: The email address that will receive the feedback messages.
+- PORT (optional): The port for the server (defaults to 3000).
 
-        <li>Create a <code>.env</code> file in the root of your project and set up the required environment variables.</li>
+You can set these variables in your .env file:
 
-        <li>Run the server locally:</li>
-        <pre><code>npm start</code></pre>
-    </ol>
+- EMAIL_USER=your-email@gmail.com
+- EMAIL_PASS=your-email-password
+- RECEIVER_EMAIL=recipient-email@gmail.com
+- PORT=3000
 
-    <h2>Deployment</h2>
-    <p>
-        This project is set up for deployment on <strong>Vercel</strong>. Simply connect your GitHub repository to Vercel,
-        and the platform will handle deployment automatically.
-    </p>
+---Installation
 
-    <h2>API Endpoint</h2>
-    <p><strong>POST /api/feedback</strong>: Sends feedback data (name, phone, and message) via email.</p>
+1. Clone the repository:
 
-    <h3>Example request body:</h3>
-    <pre><code>
+git clone https://github.com/your-username/your-repo-name.git
+
+2. Navigate into the project directory:
+
+cd your-repo-name
+
+3. Install the dependencies:
+
+npm install
+
+4. Create a .env file in the root of your project and set up the required environment variables.
+
+5. Run the server locally:
+
+npm start
+
+---Deployment
+
+This project is set up for deployment on Vercel. Simply connect your GitHub repository to Vercel, and the platform will handle deployment automatically.
+
+---API Endpoint
+
+POST /api/feedback: Sends feedback data (name, phone, and message) via email.
+
+Example request body:
 
 {
 "name": "John Doe",
 "phone": "+1234567890",
 "message": "Hello, I would like to inquire about your services."
 }
-</code></pre>
