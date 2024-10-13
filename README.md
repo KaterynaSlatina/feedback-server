@@ -62,9 +62,12 @@ POST /api/feedback: Sends feedback data (name, phone, and message) via email.
 
 Example request body:
 
-{
+## {
 
-- "name": "John Doe",
-- "phone": "+1234567890",
-- "message": "Hello, I would like to inquire about your services."
-  }
+## "name": "John Doe",
+
+## "phone": "+1234567890",
+
+## "message": "Hello, I would like to inquire about your services."-
+
+}
