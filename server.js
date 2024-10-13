@@ -1,5 +1,3 @@
-// server.js
-
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
@@ -12,17 +10,17 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Маршрут для обработки формы обратной связи
+// Маршрут для обрабки форми зворотнього зв'язку
 app.post("/feedback", async (req, res) => {
   const { name, phone, message } = req.body;
 
-  // Простая валидация
+  // Валідація
   if (!name || !phone || !message) {
     return res.status(400).json({ error: "Пожалуйста, заполните все поля." });
   }
 
   try {
-    // Настройка транспорта для nodemailer
+    // Налаштування транспорту для nodemailer
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -31,15 +29,15 @@ app.post("/feedback", async (req, res) => {
       },
     });
 
-    // Определение письма
+    // Визначення листа
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.RECEIVER_EMAIL, // Ваш email для получения сообщений
+      to: process.env.RECEIVER_EMAIL, // email для отримання повідомлень
       subject: "Новая заявка с сайта",
       text: `Имя: ${name}\nТелефон: ${phone}\nСообщение: ${message}`,
     };
 
-    // Отправка письма
+    // Відправки листа
     await transporter.sendMail(mailOptions);
 
     res.status(200).json({ message: "Ваше сообщение успешно отправлено!" });
@@ -49,7 +47,7 @@ app.post("/feedback", async (req, res) => {
   }
 });
 
-// Запуск сервера
+// Запуск серверу
 app.listen(PORT, () => {
-  console.log(`Сервер запущен на порту ${PORT}`);
+  console.log(`Сервер запущено на порту ${PORT}`);
 });
