@@ -4,10 +4,10 @@ This project is a simple feedback form server built with Node.js and Express, wh
 
 ## Features
 
-*Accepts POST requests with feedback data
-*Sends feedback via email using Nodemailer
-*Configurable through environment variables
-*Deployed on Vercel
+- Accepts POST requests with feedback data
+- Sends feedback via email using Nodemailer
+- Configurable through environment variables
+- Deployed on Vercel
 
 ## Technologies Used
 
@@ -20,17 +20,17 @@ This project is a simple feedback form server built with Node.js and Express, wh
 
 To configure the email service, you'll need the following environment variables:
 
-- EMAIL_USER: The email address from which messages will be sent.
-- EMAIL_PASS: The password or application-specific password for the email account.
-- RECEIVER_EMAIL: The email address that will receive the feedback messages.
-- PORT (optional): The port for the server (defaults to 3000).
+EMAIL_USER: The email address from which messages will be sent.
+EMAIL_PASS: The password or application-specific password for the email account.
+RECEIVER_EMAIL: The email address that will receive the feedback messages.
+PORT (optional): The port for the server (defaults to 3000).
 
 You can set these variables in your .env file:
 
-- EMAIL_USER=your-email@gmail.com
-- EMAIL_PASS=your-email-password
-- RECEIVER_EMAIL=recipient-email@gmail.com
-- PORT=3000
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-email-password
+RECEIVER_EMAIL=recipient-email@gmail.com
+PORT=3000
 
 ## Installation
 
