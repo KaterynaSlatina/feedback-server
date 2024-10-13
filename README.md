@@ -1,22 +1,23 @@
-#Feedback API Server
+# Feedback API Server
 
 This project is a simple feedback form server built with Node.js and Express, which uses Nodemailer to send feedback messages via email. The server is designed to handle POST requests with feedback data (name, phone, and message) and send it to a specified email address.
 
----Features
+## Features
 
 *Accepts POST requests with feedback data
 *Sends feedback via email using Nodemailer
 *Configurable through environment variables
 *Deployed on Vercel
 
----Technologies Used
+## Technologies Used
 
 - Node.js
 - Express
 - Nodemailer
 - Vercel
 
----Environment Variables
+## Environment Variables
+
 To configure the email service, you'll need the following environment variables:
 
 - EMAIL_USER: The email address from which messages will be sent.
@@ -31,7 +32,7 @@ You can set these variables in your .env file:
 - RECEIVER_EMAIL=recipient-email@gmail.com
 - PORT=3000
 
----Installation
+## Installation
 
 1. Clone the repository:
 
@@ -51,18 +52,19 @@ npm install
 
 npm start
 
----Deployment
+## Deployment
 
 This project is set up for deployment on Vercel. Simply connect your GitHub repository to Vercel, and the platform will handle deployment automatically.
 
----API Endpoint
+## API Endpoint
 
 POST /api/feedback: Sends feedback data (name, phone, and message) via email.
 
 Example request body:
 
 {
-"name": "John Doe",
-"phone": "+1234567890",
-"message": "Hello, I would like to inquire about your services."
-}
+
+- "name": "John Doe",
+- "phone": "+1234567890",
+- "message": "Hello, I would like to inquire about your services."
+  }
