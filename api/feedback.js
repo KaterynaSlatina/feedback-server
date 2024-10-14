@@ -20,6 +20,7 @@ module.exports = async (req, res) => {
   }
 
   if (req.method != "POST") {
+    res.setHeader("Content-Type", "application/json");
     return res.status(405).json({ error: "Метод не дозволений." });
   }
 
@@ -27,6 +28,8 @@ module.exports = async (req, res) => {
 
   // Валідація
   if (!name || !phone || !message) {
+    res.setHeader("Content-Type", "application/json");
+    console.log("Validation failed: missing fields");
     return res.status(400).json({ error: "Будь ласка, заповніть всі поля" });
   }
 
@@ -40,6 +43,10 @@ module.exports = async (req, res) => {
       },
     });
 
+    // Перевірка підключення до SMTP
+    await transporter.verify();
+    console.log("SMTP Connection successful");
+
     // Визначення листа
     const mailOptions = {
       from: process.env.EMAIL_USER,
@@ -47,7 +54,7 @@ module.exports = async (req, res) => {
       subject: "Нова заявка з сайту",
       text: `Ім'я: ${name}\nТелефон: ${phone}\nПовідомлення: ${message}`,
     };
-    console.log(mailOptions);
+    console.log("Mail options:", mailOptions);
 
     // Відправка листа
     await transporter.sendMail(mailOptions);
