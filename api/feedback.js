@@ -4,7 +4,11 @@ require("dotenv").config();
 // Маршрут для обробки форми зворотнього зв'язку
 module.exports = async (req, res) => {
   // Додавання CORS заголовків
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173"); // Дозволяє запити з вашого локального фронтенду
+  // res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173"); // Дозволяє запити з вашого локального фронтенду
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://victor-lars-petrenko.github.io"
+  ); // Дозволяє запити з вашого локального фронтенду
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
