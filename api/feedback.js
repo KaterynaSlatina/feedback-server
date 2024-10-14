@@ -11,6 +11,7 @@ module.exports = async (req, res) => {
   // Логування для налагодження
   console.log("Request method:", req.method);
   console.log("Origin:", req.headers.origin);
+  console.log("RECEIVER_EMAIL:", process.env.RECEIVER_EMAIL);
 
   // Обробка preflight запиту
   if (req.method === "OPTIONS") {
