@@ -3,7 +3,18 @@ require("dotenv").config();
 
 // Маршрут для обробки форми зворотнього зв'язку
 module.exports = async (req, res) => {
-  if (reg.method != "POST") {
+  // Додавання CORS заголовків
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173"); // Дозволяє запити з вашого локального фронтенду
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  // Обробка preflight запиту
+  if (req.method === "OPTIONS") {
+    res.status(200).end();
+    return;
+  }
+
+  if (req.method != "POST") {
     return res.status(405).json({ error: "Метод не дозволений." });
   }
 
@@ -27,12 +38,13 @@ module.exports = async (req, res) => {
     // Визначення листа
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.RECEIVER_EMAIL, // email для отримання повідомлень
+      to: process.env.RECEIVER_EMAIL,
       subject: "Нова заявка з сайту",
       text: `Ім'я: ${name}\nТелефон: ${phone}\nПовідомлення: ${message}`,
     };
+    console.log(mailOptions);
 
-    // Відправки листа
+    // Відправка листа
     await transporter.sendMail(mailOptions);
 
     res.status(200).json({ message: "Ваше повідомлення успішно відправлено!" });
