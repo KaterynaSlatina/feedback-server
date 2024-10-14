@@ -8,6 +8,10 @@ module.exports = async (req, res) => {
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
+  // Логування для налагодження
+  console.log("Request method:", req.method);
+  console.log("Origin:", req.headers.origin);
+
   // Обробка preflight запиту
   if (req.method === "OPTIONS") {
     res.status(200).end();
