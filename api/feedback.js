@@ -51,11 +51,15 @@ module.exports = async (req, res) => {
 
     // Відправка листа
     await transporter.sendMail(mailOptions);
+    console.log("Mail sent successfully");
+
+    res.setHeader("Content-Type", "application/json");
 
     res.status(200).json({ message: "Ваше повідомлення успішно відправлено!" });
   } catch (error) {
     console.error("Помилка при відправці листа:", error);
-    res
+    res.setHeader("Content-Type", "application/json");
+    return res
       .status(500)
       .json({ error: "Сталася помилка при відправці повідомлення." });
   }
