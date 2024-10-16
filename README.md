@@ -36,7 +36,7 @@ You can set these variables in your .env file:
 
 1. Clone the repository:
 
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://https://github.com/KaterynaSlatina/feedback-server
 
 2. Navigate into the project directory:
 
